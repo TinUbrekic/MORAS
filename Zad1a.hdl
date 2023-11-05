@@ -1,0 +1,11 @@
+CHIP Zad1a
+{
+	IN x, y;
+	OUT out;
+	
+	PARTS:
+	Not(in = x, out = not_x);
+	Not(in = y, out = not_y);
+	
+	Not_xy(a = not_x, b = not_y, out = out);
+}
