@@ -1,0 +1,13 @@
+CHIP Less
+{
+	IN a[16], b[16];
+	OUT out;
+	
+	PARTS:
+    
+	Xor16(a = a, b = b, out = rez1);
+
+    	Or16Way(in = out1, out = rez2);
+	
+	Not(in = out2, out = out);
+}
