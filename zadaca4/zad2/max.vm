@@ -1,43 +1,35 @@
-function max 3
-    push argument 0
-    push argument 1
-    gt
-    if-goto x_gt_y_max
-    push argument 1
-    push argument 2
-    gt
-    if-goto y_gt_z_max
-    push argument 1
-    return
+function Max.max 3
+push argument 0
+push argument 1
+gt
+push argument 0
+push argument 2
+gt
+and
+if-goto MAX_FIRST
 
-label x_gt_y_max
-    push argument 0
-    push argument 2
-    gt
-    if-goto x_gt_z_max
-    push argument 0
-    return
+push argument 1
+push argument 0
+gt
+push argument 1
+push argument 2
+gt
+and
+if-goto MAX_SECOND
 
-label x_gt_z_max
-    push argument 1
-    push argument 2
-    gt
-    if-goto ret_y_max
-    push argument 2
-    return
+goto MAX_THIRD
 
-label y_gt_z_max
-    push argument 0
-    push argument 2
-    gt
-    if-goto ret_x_max
-    push argument 2
-    return
+label MAX_FIRST
+push argument 0
+return
 
-label ret_y_max
-    push argument 1
-    return
+label MAX_SECOND
+push argument 1
+return
 
+label MAX_THIRD
+push argument 2
+return
 label ret_x_max
     push argument 0
     return
